@@ -13,7 +13,7 @@ class MyQueue
         // Peek top value if queue not empty
         if (count > 0)
         {
-            Console.WriteLine("Top item: {0}", aQueue.Peek());
+            Console.WriteLine("First item: {0}", aQueue.Peek());
         }
         else
         {
