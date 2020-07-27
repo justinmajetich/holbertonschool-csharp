@@ -9,7 +9,7 @@ class LList
 
         if (myLList.Count == 0)
         {
-            myLList.AddFirst(newNode);
+            return myLList.AddFirst(newNode);
         }
 
         for (var current = myLList.First; current != null; current = current.Next)
