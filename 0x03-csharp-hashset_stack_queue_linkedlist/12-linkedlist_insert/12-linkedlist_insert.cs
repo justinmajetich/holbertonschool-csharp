@@ -10,15 +10,18 @@ class LList
         if (myLList.Count == 0)
         {
             myLList.AddFirst(newNode);
-            return newNode;
         }
-
-        for (var current = myLList.First; current != null; current = current.Next)
+        else
         {
-            if (n <= current.Value)
+            LinkedListNode<int> current = myLList.First;
+            while (current != null)
             {
-                myLList.AddBefore(current, newNode);
-                break;
+                if (n <= current.Value)
+                {
+                    myLList.AddBefore(current, newNode);
+                    break;
+                }
+                current = current.Next;
             }
         }
         return newNode;
