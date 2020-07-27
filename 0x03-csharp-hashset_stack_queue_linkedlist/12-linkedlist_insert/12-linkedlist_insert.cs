@@ -15,7 +15,7 @@ class LList
 
         for (var current = myLList.First; current != null; current = current.Next)
         {
-            if (n >= current.Value)
+            if (n <= current.Value)
             {
                 myLList.AddBefore(current, newNode);
                 break;
