@@ -16,14 +16,22 @@ class LList
             else
             {
                 LinkedListNode<int> current = myLList.First;
-                while (current != null)
+                while (current.Next != null)
                 {
                     if (n <= current.Value)
                     {
                         myLList.AddBefore(current, newNode);
-                        break;
+                        return newNode;
                     }
                     current = current.Next;
+                }
+                if (n <= current.Value)
+                {
+                    myLList.AddBefore(current, newNode);
+                }
+                else
+                {
+                    myLList.AddLast(newNode);
                 }
             }
         }
