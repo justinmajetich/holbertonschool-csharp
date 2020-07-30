@@ -25,7 +25,7 @@ namespace Enemies
         {
             if (value >= 0)
             {
-                this.health = 0;
+                this.health = value;
             }
             else
             {
