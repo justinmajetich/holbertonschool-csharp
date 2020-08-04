@@ -2,16 +2,16 @@ using NUnit.Framework;
 
 namespace MyMath.Tests
 {
+    [TestFixture]
     /// <summary>
     /// Tests for the Operations class
     /// </summary>
-    [TestFixture]
     public class OperationsTests
     {
+        [Test]
         /// <summary>
         /// Tests the Add operation on two valid integer arguments
         /// </summary>
-        [Test]
         public void Add_WhenTwoIntsAdded_ReturnsCorrectSum(
             [Values(1, -3, 5, -10, 18, -28, 56, 199, 1035, 30456)] int a,
             [Values(0, -6, 9, 13, 17, 42, 78, 852, -9099, 12000)] int b)
