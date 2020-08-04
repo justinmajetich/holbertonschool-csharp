@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Text
 {
@@ -15,14 +16,26 @@ namespace Text
         public static bool IsPalindrome(string s)
         {
             // Standardize sting to lowercase
-            var sLower = s.ToLower();
+            s = s.ToLower();
+
+            // Strip string of whitespace and punctuation
+            List<char> sCleaned = new List<char>();
+
+            for (var i = 0; i < s.Length; i++)
+            {
+                if (s[i] >= 'a' && s[i] <= 'z')
+                {
+                    sCleaned.Add(s[i]);
+                }
+            }
+            s = new string(sCleaned.ToArray());
 
             // Create copy of string in reverse
-            char[] sCharArray = sLower.ToCharArray();
+            char[] sCharArray = s.ToCharArray();
             Array.Reverse(sCharArray);
             string sReverse = new string(sCharArray);
 
-            return sLower == sReverse;
+            return s == sReverse;
         }
     }
 }

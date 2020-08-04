@@ -4,16 +4,24 @@ namespace Text.Tests
 {
     public class StrTests
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
         [TestCase("racecar")]
         [TestCase("LEVEL")]
         [TestCase("daD")]
         [TestCase("RaCeCAr")]
         public void IsPalindrome_WhenStringIsPalindrome_ReturnsTrue(string testString)
+        {
+            // Act
+            bool isPalindrome = Str.IsPalindrome(testString);
+
+            // Assert
+            Assert.That(isPalindrome == true);
+        }
+
+        [TestCase("ra ce ca     r")]
+        [TestCase("L:EV EL...")]
+        [TestCase("da,,,,D")]
+        [TestCase("R aC   eC:::::,,Ar")]
+        public void IsPalindrome_WhenStringIsPalindromeWithSpaceAndOrPunctuation_ReturnsTrue(string testString)
         {
             // Act
             bool isPalindrome = Str.IsPalindrome(testString);
