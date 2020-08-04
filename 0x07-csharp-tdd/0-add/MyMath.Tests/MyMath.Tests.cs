@@ -2,9 +2,15 @@ using NUnit.Framework;
 
 namespace MyMath.Tests
 {
+    /// <summary>
+    /// Tests for the Operations class
+    /// </summary>
     [TestFixture]
     public class OperationsTests
     {
+        /// <summary>
+        /// Tests the Add operation on two valid integer arguments
+        /// </summary>
         [Test]
         public void Add_WhenTwoIntsAdded_ReturnsCorrectSum(
             [Values(1, -3, 5, -10, 18, -28, 56, 199, 1035, 30456)] int a,
