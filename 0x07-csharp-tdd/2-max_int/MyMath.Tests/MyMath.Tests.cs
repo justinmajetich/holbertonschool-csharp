@@ -49,5 +49,15 @@ namespace MyMath.Tests
             // Assert
             Assert.That(result == 0);
         }
+
+        [Test]
+        public void Max_WhenNullIsPassed_Returns0()
+        {
+            // Act - take max of empty list
+            var result = Operations.Max(null);
+
+            // Assert
+            Assert.That(result == 0);
+        }
     }
 }
