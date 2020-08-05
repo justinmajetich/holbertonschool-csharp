@@ -6,7 +6,7 @@ namespace MyMath.Tests
     /// Tests for the Operations class
     /// </summary>
     [TestFixture]
-    public class Operations
+    public class OperationsTests
     {
         /// <summary>
         /// Tests the Add operation on two valid integer arguments
@@ -21,6 +21,16 @@ namespace MyMath.Tests
 
             // Assert - correct sum is produced
             Assert.That(testSum == (a + b));
+        }
+
+        [Test]
+        public void Add_WhenMinAndMaxAdded_ReturnsNegOne()
+        {
+            // Act - add two ints using Add method
+            var testSum = Operations.Add(int.MinValue, int.MaxValue);
+
+            // Assert - correct sum is produced
+            Assert.That(testSum == -1);
         }
     }
 }
