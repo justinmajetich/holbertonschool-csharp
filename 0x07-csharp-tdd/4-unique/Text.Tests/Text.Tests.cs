@@ -91,5 +91,15 @@ namespace Text.Tests
             // Assert
             Assert.That(result == -1);
         }
+
+        [TestCase(null)]
+        public void UniqueChar_WhenPassedNull_ReturnNegativeOne(string s)
+        {
+            // Act
+            var result = Str.UniqueChar(s);
+
+            // Assert
+            Assert.That(result == -1);
+        }
     }
 }

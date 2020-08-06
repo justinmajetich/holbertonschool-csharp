@@ -16,6 +16,11 @@ namespace Text
         /// </returns>
         public static int UniqueChar(string s)
         {
+            if (s == null)
+            {
+                return -1;
+            }
+
             if (s.Length == 1)
             {
                 return 0;
