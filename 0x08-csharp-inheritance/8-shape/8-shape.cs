@@ -30,8 +30,8 @@ class Square : Rectangle
 /// </summary>
 class Rectangle : Shape
 {
-    private int width;
-    private int height;
+    protected int width;
+    protected int height;
 
     public int Width {
         get => width; 
