@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
@@ -23,19 +24,29 @@ class ImageProcessor {
                 // For each image file create a new Bitmap object
                 Bitmap image = new Bitmap(imagePath);
 
-                // Iterate through each pixel, inverting its color
-                for (int y = 0; y < image.Height; y++)
-                {
-                    for (int x = 0; x < image.Width; x++)
-                    {
-                        // Get color of current pixel
-                        Color pixelColor = image.GetPixel(x, y);
+                // Lock the bitmaps bits
+                BitmapData bmpData = image.LockBits(
+                    new Rectangle(0, 0, image.Width, image.Height),
+                    ImageLockMode.ReadWrite, image.PixelFormat);
 
-                        // Set color of current pixel to inverse
-                        image.SetPixel(x, y, Color.FromArgb(pixelColor.A,
-                            255 - pixelColor.R, 255 - pixelColor.G, 255 - pixelColor.B));
-                    }
-                }
+                // Determine size of image in bytes
+                int bytes = bmpData.Stride * bmpData.Height;
+
+                // Allocate buffer size of image bytes
+                byte[] rgbBuffer = new byte[bytes];
+
+                // Safely copy bitmap data to buffer
+                System.Runtime.InteropServices.Marshal.Copy(bmpData.Scan0, rgbBuffer, 0, bytes);
+
+                // Iterate through RGB buffer, inverting each color value
+                for (var i = 0; i < bytes; i++)
+                    rgbBuffer[i] = (byte)(255 - rgbBuffer[i]);
+
+                // Copy values back from buffer
+                System.Runtime.InteropServices.Marshal.Copy(rgbBuffer, 0, bmpData.Scan0, bytes);
+
+                // Unlock bits
+                image.UnlockBits(bmpData);
 
                 // Extract filename from path and edit for new save
                 string[] nameSplit = imagePath.Split(new Char[] {'/', '.'});
