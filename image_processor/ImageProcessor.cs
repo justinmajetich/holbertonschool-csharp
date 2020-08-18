@@ -14,32 +14,28 @@ class ImageProcessor {
     /// <param name="filenames">A list of images to invert.</param>
     public static void Inverse(string[] filenames) {
 
+        List<Task> tasks = new List<Task>();
+
         // Iterate through all .jpg files in images directory
-        Parallel.ForEach (filenames, imagePath => 
+        Parallel.ForEach(filenames, (imagePath) =>
         {
             {
                 // For each image file create a new Bitmap object
                 Bitmap image = new Bitmap(imagePath);
 
-                // Create an async task to process each image
-                Task task = Task.Factory.StartNew( () => {
-
-                    // Iterate through each pixel, inverting its color
-                    for (int y = 0; y < image.Height; y++)
+                // Iterate through each pixel, inverting its color
+                for (int y = 0; y < image.Height; y++)
+                {
+                    for (int x = 0; x < image.Width; x++)
                     {
-                        for (int x = 0; x < image.Width; x++)
-                        {
-                            // Get color of current pixel
-                            Color pixelColor = image.GetPixel(x, y);
+                        // Get color of current pixel
+                        Color pixelColor = image.GetPixel(x, y);
 
-                            // Set color of current pixel to inverse
-                            image.SetPixel(x, y, Color.FromArgb(pixelColor.A,
-                                255 - pixelColor.R, 255 - pixelColor.G, 255 - pixelColor.B));
-                        }
+                        // Set color of current pixel to inverse
+                        image.SetPixel(x, y, Color.FromArgb(pixelColor.A,
+                            255 - pixelColor.R, 255 - pixelColor.G, 255 - pixelColor.B));
                     }
-                } );
-                // Pause main thread
-                task.Wait();
+                }
 
                 // Extract filename from path and edit for new save
                 string[] nameSplit = imagePath.Split(new Char[] {'/', '.'});
