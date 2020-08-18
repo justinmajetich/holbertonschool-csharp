@@ -37,7 +37,7 @@ class ImageProcessor {
                 System.Runtime.InteropServices.Marshal.Copy(bmpData.Scan0, rgbBuffer, 0, bytes);
 
                 // Iterate through RGB buffer, inverting each color value to gray
-                for (var i = 0; i < bytes; i += 3)
+                for (var i = 0; i + 2 < bytes; i += 3)
                 {
                     byte gray = (byte)((0.21 * rgbBuffer[i]) + 
                                        (0.71 * rgbBuffer[i + 1]) + 
