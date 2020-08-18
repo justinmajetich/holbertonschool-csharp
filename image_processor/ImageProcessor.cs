@@ -3,8 +3,15 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-
+/// <summary>
+/// Provides methods to perfrom various image processing techniques.
+/// </summary>
 class ImageProcessor {
+
+    /// <summary>
+    /// Inverts a list of image(s).
+    /// </summary>
+    /// <param name="filenames">A list of images to invert.</param>
     public static void Inverse(string[] filenames) {
 
         // Iterate through all .jpg files in images directory
