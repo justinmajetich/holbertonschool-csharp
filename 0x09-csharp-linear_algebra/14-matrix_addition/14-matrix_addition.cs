@@ -24,7 +24,7 @@ class MatrixMath
                 for (int x = 0; x < matrix2.GetLength(0); x++)
                 {
                     // Add together the corresponding values
-                    matrix1[y][x] += matrix2[y][x];
+                    matrix1[y,x] += matrix2[y,x];
                 }
             }
             return matrix1;
