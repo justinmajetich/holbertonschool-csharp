@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 
 /// <summary>
@@ -11,15 +12,18 @@ class VectorMath
     /// </summary>
     /// <param name="vector1">First vector.</param>
     /// <param name="vector2">Second vector.</param>
-    /// <returns></returns>
+    /// <returns>The dot product of two vectors.</returns>
     public static double DotProduct(double[] vector1, double[] vector2)
     {
         if ((vector1.Length == 2 || vector1.Length == 3) && vector1.Length == vector2.Length)
         {
+            // Iterate through vector values
             for (int i = 0; i < vector1.Length; i++)
+                // Multiply corresponding values together
                 vector1[i] *= vector2[i];
-            return vector1;
+            // Return sum of products
+            return vector1.Sum();
         }
-        return new double[] {-1};
+        return -1;
     }
 }
