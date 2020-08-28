@@ -29,6 +29,6 @@ class MatrixMath
             }
             return matrix1;
         }
-        return new double[,] { {1} };
+        return new double[,] { {-1} };
     }
 }
