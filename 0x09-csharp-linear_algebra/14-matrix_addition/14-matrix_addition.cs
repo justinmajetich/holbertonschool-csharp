@@ -13,7 +13,7 @@ class MatrixMath
     /// <param name="matrix2">Second matrix.</param>
     /// <returns>
     /// The result of the matrix addition, or -1 if matrix is of invalid size.
-    ///</returns>
+    /// </returns>
     public static double[,] Add(double[,] matrix1, double[,] matrix2)
     {
         if ((matrix1.GetLength(0) == 2 || matrix1.GetLength(0) == 3) &&
