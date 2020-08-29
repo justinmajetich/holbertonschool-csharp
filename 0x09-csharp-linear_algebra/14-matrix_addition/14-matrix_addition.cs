@@ -16,7 +16,8 @@ class MatrixMath
     /// </returns>
     public static double[,] Add(double[,] matrix1, double[,] matrix2)
     {
-        if ((matrix1.GetLength(0) == 2 || matrix1.GetLength(0) == 3) &&
+        if (((matrix1.GetLength(0) == 2 && matrix1.GetLength(1) == 2) ||
+            (matrix1.GetLength(0) == 3 && matrix1.GetLength(1) == 3)) &&
             matrix1.GetLength(0) == matrix2.GetLength(0))
         {
             for (int y = 0; y < matrix1.GetLength(0); y++)
