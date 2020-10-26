@@ -6,8 +6,8 @@
 /// <typeparam name="T">Type is user-defined at instantiation.</typeparam>
 class Queue<T> {
     
-    Node head = null;
-    Node tail = null;
+    public Node head { get; set; } = null;
+    public Node tail { get; set; } = null;
     int count = 0;
 
     /// <summary>
@@ -23,8 +23,8 @@ class Queue<T> {
     /// </summary>
     public class Node {
 
-        public T value;
-        public Node next = null;
+        T value;
+        public Node next { get; set; } = null;
 
         /// <summary>
         /// Class contructor.
@@ -50,7 +50,7 @@ class Queue<T> {
         } else {
             Node runner = head;
 
-            // Find end of queue.
+            // Find current end of queue.
             while (runner.next != null) {
                 runner = runner.next;
             }
