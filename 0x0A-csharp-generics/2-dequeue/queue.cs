@@ -42,14 +42,14 @@ class Queue<T> {
     public void Enqueue(T _value) {
         
         Node newNode = new Node(_value);
-        tail = newNode;
 
         // If head does not exist, set new node as head and tail.
         if (head == null) {
-            head = newNode;
+            tail = head = newNode;
         } else {
             // Add new node.
             tail.next = newNode;
+            tail = newNode;
         }
         // Increment count of nodes in queue.
         count++;
@@ -73,7 +73,7 @@ class Queue<T> {
             head = head.next;
 
             // Decrement count of nodes in queue.
-            // count--;
+            count--;
 
             return value;
 
