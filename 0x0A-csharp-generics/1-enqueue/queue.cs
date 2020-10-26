@@ -8,7 +8,7 @@ class Queue<T> {
     
     public Node head { get; set; } = null;
     public Node tail { get; set; } = null;
-    int count = 0;
+    int count { get; set; } = 0;
 
     /// <summary>
     /// Gets the type of the instance.
@@ -48,15 +48,8 @@ class Queue<T> {
         if (head == null) {
             head = newNode;
         } else {
-            Node runner = head;
-
-            // Find current end of queue.
-            while (runner.next != null) {
-                runner = runner.next;
-            }
-
             // Add new node.
-            runner.next = newNode;
+            tail.next = newNode;
         }
         // Increment count of nodes in queue.
         count++;
