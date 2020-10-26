@@ -61,6 +61,7 @@ class Queue<T> {
     public T Dequeue() {
 
         if (head != null) {
+
             T value = head.value;
 
             // If node being removed is only node...
@@ -72,16 +73,17 @@ class Queue<T> {
             head = head.next;
 
             // Decrement count of nodes in queue.
-            count--;
+            // count--;
 
             return value;
+
         } else {
+
             // If queue is empty...
             Console.WriteLine("Queue is empty");
             return default(T);
+
         }
-
-
     }
 
     /// <summary>
