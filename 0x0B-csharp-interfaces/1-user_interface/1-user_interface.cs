@@ -21,6 +21,7 @@ class TestObject : Base, IInteractive, IBreakable, ICollectable {
 
     public int durability { get; set; }
     public bool isCollected { get; set; }
+    private string name { get; set; }
 
     public void Interact() {
         throw new NotImplementedException();
