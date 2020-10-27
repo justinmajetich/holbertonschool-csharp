@@ -8,15 +8,15 @@ class Decoration : Base, IInteractive, IBreakable {
     public bool isQuestItem { get; set; }
     public int durability { get; set; }  
 
-    public Decoration(string _name = "Decoration", int _durability = 1,
-                       bool _isQuestItem = false) {
+    public Decoration(string name = "Decoration", int durability = 1,
+                       bool isQuestItem = false) {
 
-        if (_durability <= 0) {
+        if (durability <= 0) {
             throw new Exception("Durability must be greater than 0");
         } else {
-            name = _name;
-            durability = _durability;
-            isQuestItem = _isQuestItem;
+            this.name = name;
+            this.durability = durability;
+            this.isQuestItem = isQuestItem;
         }
 
     }
