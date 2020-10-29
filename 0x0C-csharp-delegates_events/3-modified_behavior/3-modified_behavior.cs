@@ -79,12 +79,10 @@ public class Player
         if (modifier == Modifier.Weak) {
             return baseValue / 2;
         }
-        if (modifier == Modifier.Base) {
-            return baseValue;
-        }
         if (modifier == Modifier.Strong) {
             return baseValue * 1.5f;
         }
+        return baseValue;
     }
 
     /// <summary>
