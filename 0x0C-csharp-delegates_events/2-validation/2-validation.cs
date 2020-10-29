@@ -58,17 +58,17 @@ public class Player
     /// <summary>
     /// Validates player's new HP.
     /// </summary>
-    /// <param name="newHp"></param>
     public void ValidateHP(float newHp) {
 
         if (newHp < 0 ) {
-            newHp = 0;
+            this.hp = 0;
         }
-        if (newHp > maxHp) {
-            newHp = maxHp;
+        else if (newHp > maxHp) {
+            this.hp = maxHp;
         }
-
-        hp = newHp;
+        else {
+            this.hp = newHp;
+        }
     }
 
     /// <summary>
