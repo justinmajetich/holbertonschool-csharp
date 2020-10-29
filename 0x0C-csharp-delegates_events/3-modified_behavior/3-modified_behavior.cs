@@ -50,11 +50,10 @@ public class Player
 
         if (damage >= 0) {
             Console.WriteLine($"{name} takes {damage} damage!");
+            ValidateHP(hp - damage);
         } else {
             Console.WriteLine($"{name} takes 0 damage!");
         }
-
-        ValidateHP(hp - damage);
     }
 
     /// <summary>
@@ -64,11 +63,10 @@ public class Player
 
         if (heal >= 0) {
             Console.WriteLine($"{name} heals {heal} HP!");
+            ValidateHP(hp + heal);
         } else {
             Console.WriteLine($"{name} heals 0 HP!");
         }
-
-        ValidateHP(hp + heal);
     }
 
     /// <summary>
@@ -77,7 +75,7 @@ public class Player
     public float ApplyModifier(float baseValue, Modifier modifier) {
 
         if (modifier == Modifier.Weak) {
-            return baseValue / 2;
+            return baseValue / 2f;
         }
         if (modifier == Modifier.Strong) {
             return baseValue * 1.5f;
